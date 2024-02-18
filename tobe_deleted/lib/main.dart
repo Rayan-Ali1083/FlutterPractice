@@ -17,61 +17,52 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         drawer: Drawer(
-            backgroundColor: Color.fromARGB(255, 100, 183, 65),
-            child: Container(
-              padding: EdgeInsets.only(left: 10, top: 20),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'Home',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 251, 246, 238),
-                        fontSize: 20,
-                      ),
-                    ),
+          backgroundColor: const Color.fromARGB(255, 100, 183, 65),
+          child: Container(
+            padding: const EdgeInsets.only(
+              top: 15,
+              left: 15,
+            ),
+            child: ListView(
+              children: const [
+                ListTile(
+                  textColor: Color.fromARGB(255, 251, 246, 238),
+                  title: Text('Home'),
+                  trailing: Icon(
+                    CupertinoIcons.house_fill,
+                    color: Color.fromARGB(255, 251, 246, 238),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'Favourites',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 251, 246, 238),
-                        fontSize: 20,
-                      ),
-                    ),
+                ),
+                ListTile(
+                  textColor: Color.fromARGB(255, 251, 246, 238),
+                  title: Text('Favourites'),
+                  trailing: Icon(
+                    CupertinoIcons.heart_fill,
+                    color: Color.fromARGB(255, 251, 246, 238),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'Done',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 251, 246, 238),
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'Deleted',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 251, 246, 238),
-                        fontSize: 20,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            )),
+                ),
+                ListTile(
+                    textColor: Color.fromARGB(255, 251, 246, 238),
+                    title: Text('Done'),
+                    trailing: Icon(CupertinoIcons.checkmark_alt,
+                        color: Color.fromARGB(255, 251, 246, 238))),
+                ListTile(
+                    textColor: Color.fromARGB(255, 251, 246, 238),
+                    title: Text('Delete'),
+                    trailing: Icon(
+                      CupertinoIcons.trash_fill,
+                      color: Color.fromARGB(255, 251, 246, 238),
+                    )),
+              ],
+            ),
+          ),
+        ),
         appBar: AppBar(
           title: const Text('Flutter Practice',
               style: TextStyle(color: Colors.white)),
-          backgroundColor: Color.fromARGB(255, 255, 181, 52),
+          backgroundColor: const Color.fromARGB(255, 255, 181, 52),
         ),
-        body: FullBody(),
+        body: const FullBody(),
       ),
     );
   }
@@ -96,7 +87,7 @@ class FullBody extends StatelessWidget {
             color: Color.fromARGB(255, 192, 242, 176),
             borderRadius: BorderRadius.all(Radius.circular(20)),
           ),
-          child: TextList(),
+          child: const TextList(),
         ),
       ),
     );
