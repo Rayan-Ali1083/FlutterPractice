@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,10 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'To be deleted',
       home: Scaffold(
         drawer: Drawer(
           backgroundColor: const Color.fromARGB(255, 100, 183, 65),
           child: Container(
+            alignment: AlignmentDirectional.topStart,
             padding: const EdgeInsets.only(
               top: 15,
               left: 15,
@@ -99,62 +99,54 @@ class TextList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text('Todo Item Task 1'),
-            Container(
-              width: 150,
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Icon(CupertinoIcons.heart),
-                  Icon(CupertinoIcons.check_mark),
-                  Icon(CupertinoIcons.xmark),
-                ],
-              ),
-            )
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text('Todo Item Task 2'),
-            Container(
-              width: 150,
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Icon(CupertinoIcons.heart),
-                  Icon(CupertinoIcons.check_mark),
-                  Icon(CupertinoIcons.xmark),
-                ],
-              ),
-            )
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text('Todo Item Task 3'),
-            Container(
-              width: 150,
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Icon(CupertinoIcons.heart),
-                  Icon(CupertinoIcons.check_mark),
-                  Icon(CupertinoIcons.xmark),
-                ],
-              ),
-            )
-          ],
-        ),
-      ],
+    List todo = [
+      'Go to Gym',
+      'Finish coding assingment',
+      'Pick up Laundary',
+      'Feed the cats',
+      'Check assingments',
+      'Go to Gym',
+      'Finish coding assingment',
+      'Pick up Laundary',
+      'Feed the cats',
+      'Check assingments',
+      'Go to Gym',
+      'Finish coding assingment',
+      'Pick up Laundary',
+      'Feed the cats',
+      'Check assingments',
+    ];
+
+    return ListView.separated(
+      itemCount: todo.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(
+            "${index + 1}) ${todo[index]}",
+            style: const TextStyle(
+              color: Colors.black87,
+            ),
+          ),
+          trailing: Container(
+            height: 150,
+            width: 150,
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Icon(CupertinoIcons.heart_fill),
+                Icon(CupertinoIcons.checkmark_alt),
+                Icon(CupertinoIcons.trash_fill),
+              ],
+            ),
+          ),
+        );
+      },
+      separatorBuilder: (context, index) {
+        return const Divider(
+          thickness: 1,
+          color: Colors.black54,
+        );
+      },
     );
   }
 }
